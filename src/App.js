@@ -52,7 +52,21 @@ function App() {
     setsubmittedLink(input);
     setSubmitted(true);
     if (input.length !== 0) {
-      fetch();
+      fetch("http://localhost:3002/link", {
+        method: "put",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: user.id,
+        }),
+      })
+        .then((res) => res.json())
+        .then((count) => {
+          setUser(
+            Object.assign(user, {
+              entries: count,
+            })
+          );
+        });
     }
   };
 

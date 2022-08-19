@@ -19,7 +19,7 @@ const Register = ({ onHome, onSignIn, loadUser }) => {
 
   const onSubmitRegister = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3006/register", {
+    fetch("http://localhost:3005/register", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
